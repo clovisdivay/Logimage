@@ -16,6 +16,9 @@ public:
     CheckState checkState();
     void setCheckState(CheckState state);
 
+signals:
+    void checkStateChanged();
+
 private:
     CheckState m_checkState;
 };

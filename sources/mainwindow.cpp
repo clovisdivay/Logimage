@@ -1,14 +1,32 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QDebug>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     setWindowTitle("Clogimage");
-//     buildClef();
-    buildHeart();
+    buildClef();
+//    buildHeart();
+//    ui->gridWidget->createGrid(6,6);
+//    ui->gridWidget->setColumnHeader(0,QList<int>() << 2);
+//    ui->gridWidget->setColumnHeader(1,QList<int>() << 2);
+//    ui->gridWidget->setColumnHeader(2,QList<int>() << 6);
+//    ui->gridWidget->setColumnHeader(3,QList<int>() << 6);
+//    ui->gridWidget->setColumnHeader(4,QList<int>() << 2);
+//    ui->gridWidget->setColumnHeader(5,QList<int>() << 2);
+
+//    ui->gridWidget->setRowHeader(0,QList<int>() << 2);
+//    ui->gridWidget->setRowHeader(1,QList<int>() << 2);
+//    ui->gridWidget->setRowHeader(2,QList<int>() << 6);
+//    ui->gridWidget->setRowHeader(3,QList<int>() << 6);
+//    ui->gridWidget->setRowHeader(4,QList<int>() << 2);
+//    ui->gridWidget->setRowHeader(5,QList<int>() << 2);
+    layout()->setSizeConstraint(QLayout::SetFixedSize);
+    ui->statusBar->setSizeGripEnabled(false);
 }
 
 MainWindow::~MainWindow()

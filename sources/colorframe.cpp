@@ -47,5 +47,8 @@ void ColorFrame::setCheckState(CheckState state)
     default:
         break;
     }
+
+    emit checkStateChanged();
 }
+
 

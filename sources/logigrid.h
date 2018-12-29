@@ -5,12 +5,10 @@
 #include <QList>
 #include <QGridLayout>
 
-#include "gridheader.h"
 #include "colorframe.h"
 
-namespace Ui {
-class LogiGrid;
-}
+class GridHeader;
+class SquareArray;
 
 class LogiGrid : public QWidget
 {
@@ -23,18 +21,23 @@ public:
     void setColumnHeader(int index, QList<int> list);
     void setRowHeader(int index, QList<int> list);
 
+private slots:
+    void onSquareArrayOK();
+
 protected:
     void mousePressEvent(QMouseEvent *me) Q_DECL_OVERRIDE;
     void mouseMoveEvent(QMouseEvent *me) Q_DECL_OVERRIDE;
 
 private:
-    Ui::LogiGrid *ui;
+    void gameFinished();
+    bool isGameFinished;
     QGridLayout * m_grid;
 
     QList<GridHeader*> m_vList;
     QList<GridHeader*> m_hList;
 
-    QList<ColorFrame*> m_squares;
+    QList<SquareArray*> m_columns;
+    QList<SquareArray*> m_rows;
 
     CheckState m_lastCheckState;
 };

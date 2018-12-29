@@ -47,6 +47,4 @@ void GridHeader::displayList()
         m_layout->addWidget(label);
     }
 
-    if (m_headerMode== HorizontalHeader)
-        m_layout->addSpacerItem(new QSpacerItem(5, 1, QSizePolicy::Fixed, QSizePolicy::Fixed));
 }

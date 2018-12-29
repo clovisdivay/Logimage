@@ -7,8 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle("Clogimage");
-    buildClef();
-    //buildHeart();
+//     buildClef();
+    buildHeart();
 }
 
 MainWindow::~MainWindow()
@@ -80,5 +80,4 @@ void MainWindow::buildHeart()
     ui->gridWidget->setRowHeader(9,QList<int>() << 5);
     ui->gridWidget->setRowHeader(10,QList<int>() << 3);
     ui->gridWidget->setRowHeader(11,QList<int>() << 1);
-
 }

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
-    <height>600</height>
+    <width>100</width>
+    <height>100</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,9 +15,9 @@
   </property>
   <widget class="LogiGrid" name="gridWidget">
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-     <horstretch>1</horstretch>
-     <verstretch>1</verstretch>
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
     </sizepolicy>
    </property>
   </widget>
@@ -26,8 +26,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>700</width>
-     <height>26</height>
+     <width>100</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>

@@ -28,19 +28,17 @@ SOURCES += \
         sources/mainwindow.cpp \
     sources/colorframe.cpp \
     sources/logigrid.cpp \
-    sources/verticallist.cpp \
-    sources/horizontallist.cpp \
-    sources/numberlist.cpp
+    sources/gridheader.cpp
 
 HEADERS += \
         sources/mainwindow.h \
     sources/colorframe.h \
     sources/logigrid.h \
-    sources/verticallist.h \
-    sources/horizontallist.h \
-    sources/numberlist.h
+    sources/gridheader.h
 
 FORMS += \
         sources/mainwindow.ui \
-    sources/colorframe.ui \
     sources/logigrid.ui
+
+RESOURCES += \
+    resources/resources.qrc

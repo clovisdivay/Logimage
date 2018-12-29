@@ -1,0 +1,9 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+	<qresource prefix="/" >
+		<file>images/cross.png</file>
+		<file>images/5-2-mother-of-god-meme-png.png</file>
+		<file>images/cross-24px.svg</file>
+		<file>images/cross-36dp.png</file>
+	</qresource>
+</RCC>

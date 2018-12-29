@@ -4,11 +4,7 @@
 #include <QWidget>
 #include <QFrame>
 
-namespace Ui {
-class ColorFrame;
-}
-
-enum CheckState { Filled, Crossed, Empty };
+enum CheckState {Empty, Filled, Crossed};
 
 class ColorFrame : public QFrame
 {
@@ -17,20 +13,10 @@ class ColorFrame : public QFrame
 public:
     explicit ColorFrame(QWidget *parent = 0);
     ~ColorFrame();
-
-signals:
-    void myMousePressedSignal();
-
-private slots:
-    void onMousePressed();
-
-protected:
-    void mousePressEvent(QMouseEvent *me) Q_DECL_OVERRIDE;
-    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    CheckState checkState();
+    void setCheckState(CheckState state);
 
 private:
-    Ui::ColorFrame *ui;
-
     CheckState m_checkState;
 };
 

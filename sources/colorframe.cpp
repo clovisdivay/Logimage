@@ -1,40 +1,46 @@
 #include "colorframe.h"
-#include "ui_colorframe.h"
 
 #include <QMouseEvent>
 #include <QPainter>
+#include <QDebug>
+#include <QApplication>
 
 ColorFrame::ColorFrame(QWidget *parent) :
-    QFrame(parent),
-    m_checkState(Empty),
-    ui(new Ui::ColorFrame)
+    QFrame(parent)
 {
-    ui->setupUi(this);
-    ui->frame->setStyleSheet("background-color: rgb(255,255,255);");
+    setFrameShape(QFrame::Panel);
+    setFrameShadow(QFrame::Sunken);
+    setLineWidth(1);
+    setMinimumSize(24,24);
+    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
-    connect(this, SIGNAL(myMousePressedSignal()), this, SLOT(onMousePressed()));
+    setCheckState(Empty);
 }
 
 ColorFrame::~ColorFrame()
 {
-    delete ui;
 }
 
-void ColorFrame::onMousePressed()
+CheckState ColorFrame::checkState()
 {
-    switch (m_checkState) {
-    case Empty: {
-        ui->frame->setStyleSheet("background-color: rgb(0,0,0);");
+    return m_checkState;
+}
+
+void ColorFrame::setCheckState(CheckState state)
+{
+    switch (state) {
+    case Filled: {
+        setStyleSheet("background-color: rgb(0,0,0);");
         m_checkState = Filled;
         break;
     }
-    case Filled: {
-        ui->frame->setStyleSheet("background-color: rgb(200,200,200);");
+    case Crossed: {
+        setStyleSheet("background-color: white; background-image: url(:/images/cross-24px.svg);");
         m_checkState = Crossed;
         break;
     }
-    case Crossed: {
-        ui->frame->setStyleSheet("background-color: rgb(255,255,255);");
+    case Empty: {
+        setStyleSheet("background-color: white;");
         m_checkState = Empty;
         break;
     }
@@ -43,26 +49,3 @@ void ColorFrame::onMousePressed()
     }
 }
 
-void ColorFrame::mousePressEvent(QMouseEvent *me)
-{
-    if (me->button() == Qt::LeftButton)
-    {
-        emit(myMousePressedSignal());
-        // here you shoud remember click event...
-        me->accept();
-        return;
-    }
-
-    QFrame::mousePressEvent(me);
-}
-
-void ColorFrame::paintEvent(QPaintEvent *event)
-{
-    /*if (m_checkState == Crossed)
-    {
-        QPainter painter(ui->frame);
-        painter.setPen(Qt::black);
-        painter.drawLine(0, 0, 100, 100);
-    }*/
-    QFrame::paintEvent(event);
-}
